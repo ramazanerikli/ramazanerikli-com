@@ -60,6 +60,7 @@ export default function Home({ posts, works }: Props) {
             <div className="flex gap-6 flex-col mt-4">
               {works.map((work) => (
                 <Link
+                  key={work._id}
                   href={work.link}
                   target="_blank"
                   rel="noopener noreferrer"
