@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 
+# node modules
 ramazanerikli.com/node_modules
 
 # testing
