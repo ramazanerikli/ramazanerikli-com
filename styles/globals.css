@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+ body {
+  font-family: 'Karla', sans-serif;
+} 
+
+.container {
+  max-width: 680px;
+}
+
+
+h1 {
+  font-weight: 700;
+}
+
+
+/* Todo: stylings for blog post elements */
+
+.blog-content a {
+  color: rgb(46, 46, 239);
+  text-decoration: underline;
+}
+
+.blog-content p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.blog-content h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.blog-content ul {
+  margin-left: 20px;
+  list-style: disc;
+}
+
+/* Mobile menu */
+.menu {
+  left: 0;
+  top: 4rem;
+  padding: 24px 28px 0 24px;
+}
+
+/* Code preview */
+
+.source-code {
+  margin-top: auto;
+}
+
+pre.syntax-highlighter {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: 0.25rem;
+}
+
+main {
+  overflow-x: hidden
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #d4d4d8;
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
