@@ -4,7 +4,8 @@ module.exports = {
   images: {
     domains: [
         "localhost",
-        "cdn.sanity.io"
+        "cdn.sanity.io",
+        "ramazanerikli.github.io"
     ],
 },
 }

@@ -18,10 +18,6 @@ export interface Work {
   _id: string;
   title: string;
   description: string;
-  mainImage: {
-    asset: {
-      url: string
-    }
-  };
+  color: string;
   link: string
 }
