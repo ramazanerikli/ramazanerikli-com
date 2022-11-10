@@ -4,16 +4,19 @@ import { sanityClient, urlFor } from "../sanity";
 import Link from "next/link";
 
 import { Work } from "../types";
+import { useEffect } from "react";
 
 interface Props {
   works: [Work];
 }
 
 export default function Portfolio({ works }: Props) {
+
+
   return (
     <Layout>
       <div className="w-full">
-        <h1 className="text-3xl md:text-4xl mb-6">Portfolio</h1>
+        <h1 className="text-3xl md:text-4xl mb-6 border-b-4 border-purple-400">Portfolio</h1>
         <div className="pt-4">
           <div className="flex gap-6 flex-col">
             {works.map((work) => (
