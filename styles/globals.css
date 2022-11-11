@@ -78,15 +78,17 @@ pre::-webkit-scrollbar-thumb {
   background-color: #d4d4d8;
 }
 
-.border-green-400 {
+
+.featured-content > a:first-child .featured-project {
   border-color: #49de80;
 }
 
-.border-purple-400 {
+.featured-content > a:nth-child(2) .featured-project {
   border-color: #bf84fc;
 }
 
-.border-orange-400 {
+.featured-content > a:nth-child(3) .featured-project {
   border-color: #fb923c;
 }
+
 

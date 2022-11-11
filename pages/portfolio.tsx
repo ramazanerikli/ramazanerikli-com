@@ -1,12 +1,9 @@
 import Layout from "../components/Layout";
-import { sanityClient, urlFor } from "../sanity";
+import { sanityClient } from "../sanity";
 
 import Link from "next/link";
 
 import { Work } from "../types";
-import { useEffect } from "react";
-
-import cn from "classnames";
 
 
 interface Props {
@@ -14,7 +11,6 @@ interface Props {
 }
 
 export default function Portfolio({ works }: Props) {
-
   return (
     <Layout>
       <div className="w-full">
@@ -22,7 +18,12 @@ export default function Portfolio({ works }: Props) {
         <div className="pt-4">
           <div className="flex gap-6 flex-col">
             {works.map((work) => (
-              <Link href={work.link} key={work._id}target="_blank" rel="noopener noreferrer">
+              <Link
+                href={work.link}
+                key={work._id}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <div
                   className={`border-l-4 border-${work.color}-400 rounded-md px-3 py-2 bg-white hover:bg-gray-100 cursor-pointer transition-all`}
                 >

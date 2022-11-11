@@ -4,9 +4,8 @@ import { Work } from "../types";
 import Layout from "../components/Layout";
 
 import Link from "next/link";
-import Image from "next/image";
 
-import { sanityClient, urlFor } from "../sanity";
+import { sanityClient } from "../sanity";
 
 interface Props {
   posts: [Post];
@@ -57,7 +56,7 @@ export default function Home({ posts, works }: Props) {
               </Link>
             </div>
 
-            <div className="flex gap-6 flex-col mt-4">
+            <div className="featured-content flex gap-6 flex-col mt-4">
               {works.map((work) => (
                 <Link
                   key={work._id}
@@ -66,7 +65,7 @@ export default function Home({ posts, works }: Props) {
                   rel="noopener noreferrer"
                 >
                   <div
-                    className={`border-l-4 border-${work.color}-400 rounded-md px-3 py-2 bg-white hover:bg-gray-100 cursor-pointer transition-all`}
+                    className={`featured-project border-l-4 rounded-md px-3 py-2 bg-white hover:bg-gray-100 cursor-pointer transition-all`}
                   >
                     <div className="flex flex-row gap-1 items-center">
                       <h3 className="font-bold">{work.title}</h3>
