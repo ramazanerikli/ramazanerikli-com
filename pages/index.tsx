@@ -13,6 +13,8 @@ interface Props {
 }
 
 export default function Home({ posts, works }: Props) {
+  const latestProjects = works.slice(-3);
+
   return (
     <div className="mx-auto">
       <Layout>
@@ -57,7 +59,7 @@ export default function Home({ posts, works }: Props) {
             </div>
 
             <div className="featured-content flex gap-6 flex-col mt-4">
-              {works.map((work) => (
+              {latestProjects.map((work) => (
                 <Link
                   key={work._id}
                   href={work.link}
