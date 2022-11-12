@@ -35,10 +35,10 @@ export const getServerSideProps = async (
     .readdirSync("pages")
     .filter((staticPage) => {
       return ![
-        "_app.js",
-        "_document.js",
-        "_error.js",
-        "sitemap.xml.js",
+        "_app.tsx",
+        "_document.tsx",
+        "_error.tsx",
+        "sitemap.xml.tsx",
       ].includes(staticPage);
     })
     .map((staticPagePath) => {
