@@ -1,7 +1,14 @@
 import { sanityClient } from "../sanity";
+import { Post } from "../types";
 
-import fs from "fs";
 import glob from "glob";
+
+
+interface Props {
+  posts: [Post];
+}
+
+
 const Sitemap = () => {
   return null;
 };
@@ -34,7 +41,7 @@ export const getServerSideProps = async (
       return `${BASE_URL}/${staticPagePath}`;
     }));
 
-  const dynamicPaths = posts.map((post) => {
+  const dynamicPaths = posts.map((post: Post) => {
     return `${BASE_URL}/blog/${post.slug.current}`;
   });
 
