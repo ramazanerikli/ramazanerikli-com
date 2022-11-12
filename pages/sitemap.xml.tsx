@@ -6,7 +6,9 @@ const Sitemap = () => {
   return null;
 };
 
-export const getServerSideProps = async ({ res }) => {
+export const getServerSideProps = async (
+  { res }: any /* todo narrow typing */
+) => {
   const query = `
   *[_type == "post"] {
     _id,
