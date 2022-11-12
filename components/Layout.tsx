@@ -12,9 +12,9 @@ export default function Layout(props: any) {
 
   return (
     <div className="container mx-auto px-8">
-      {/* todo: add meta tags for SEO */}
       <Head>
         <title>Ramazan Erikli - Software Developer</title>
+        <meta name="google-site-verification" content="qPgF6cx1y6cqvr3af-0WR5JPo2YvTq0oZsXRKJ2cTbY" />
         <meta name="robots" content="follow, index" />
         <meta content="Full-stack Developer" name="description" />
         <meta property="og:title" content={"Ramazan Erikli - Software Developer"} />
