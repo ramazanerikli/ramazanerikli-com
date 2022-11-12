@@ -91,4 +91,11 @@ pre::-webkit-scrollbar-thumb {
   border-color: #fb923c;
 }
 
+.link-gmail {
+  color: #c0372a;
+}
+
+.contact-modal-content {
+  max-width: 292px;
+}
 
