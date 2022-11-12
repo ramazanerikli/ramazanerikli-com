@@ -1,6 +1,7 @@
 import { sanityClient } from "../sanity";
 
 import fs from "fs";
+import glob from "glob";
 const Sitemap = () => {
   return null;
 };
@@ -20,20 +21,16 @@ export const getServerSideProps = async ({ res }) => {
 
   const BASE_URL = "https://ramazanerikli.com";
 
-  const staticPaths = fs
-    .readdirSync("pages")
-    .filter((staticPage) => {
-      return ![
-        "api",
-        "_app.tsx",
-        "_document.tsx",
-        // "404.js", todo: create a 404 page template
-        "sitemap.xml.tsx",
-      ].includes(staticPage);
-    })
+  const pagesDir = "pages/**/*.tsx";
+  let pagesPaths = await glob.sync(pagesDir);
+
+  const staticPaths = (pagesPaths = pagesPaths
+    .filter((path) => !path.includes("["))
+    .filter((path) => !path.includes("/_"))
+    .filter((path) => !path.includes("404"))
     .map((staticPagePath) => {
       return `${BASE_URL}/${staticPagePath}`;
-    });
+    }));
 
   const dynamicPaths = posts.map((post) => {
     return `${BASE_URL}/blog/${post.slug.current}`;
