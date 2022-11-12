@@ -31,7 +31,7 @@ export const getServerSideProps = async (
   const BASE_URL = "https://ramazanerikli.com";
 
   const pagesDir = "pages/**/*.tsx";
-  let pagesPaths = await glob.sync(pagesDir);
+  let pagesPaths = glob.sync(pagesDir);
 
   const staticPaths = (pagesPaths = pagesPaths
     .filter((path) => !path.includes("["))
