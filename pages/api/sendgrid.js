@@ -20,7 +20,7 @@ export default async (req, res) => {
         html: message.replace(/\r\n/g, '<br>')
     };
     
-    sendgrid.send(data);
+    await sendgrid.send(data);
     
     return res.status(200).json({ status: 'Ok' });
 };
