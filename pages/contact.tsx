@@ -6,6 +6,8 @@ export default function Contact() {
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
+  console.log(process.env.SENDGRID_API_KEY)
+
   const [errors, setErrors] = useState({});
 
   const handleValidation = () => {
