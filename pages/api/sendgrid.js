@@ -1,21 +1,26 @@
-import sendgrid from "@sendgrid/mail";
-
+import sendgrid from '@sendgrid/mail';
+    
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
-
-async function sendEmail(req, res) {
-  try {
-    await sendgrid.send({
-      to: "ramazanerikli1@gmail.com", // Your email where you'll receive emails
-      from: "ramazanerikli1@gmail.com", // your website email address here
-      subject: `${req.body.subject}`,
-      html: `<div>You've got a mail</div>`,
-    });
-  } catch (error) {
-    // console.log(error);
-    return res.status(error.statusCode || 500).json({ error: error.message });
-  }
-
-  return res.status(200).json({ error: "" });
-}
-
-export default sendEmail;
+    
+export default async (req, res) => {
+    
+    const body = JSON.parse(req.body)
+    
+    const message = `
+        Name: ${body.name}\r\n
+        Email: ${body.email}\r\n
+        Message: ${body.message}
+    `;
+    
+    const data = {
+        to: 'ramazanerikli1@gmail.com',
+        from: 'ramazanerikli1@gmail.com',
+        subject: 'You have got a new message',
+        text: message,
+        html: message.replace(/\r\n/g, '<br>')
+    };
+    
+    sendgrid.send(data);
+    
+    return res.status(200).json({ status: 'Ok' });
+};

@@ -1,61 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Layout from "../components/Layout";
 
 export default function Contact() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
-
-  console.log(process.env.SENDGRID_API_KEY)
-
-  const [errors, setErrors] = useState({});
-
-  const handleValidation = () => {
-    let tempErrors = {} as any;
-    let isValid = true;
-
-    if (name.length <= 0) {
-      tempErrors["name"] = true;
-      isValid = false;
-    }
-    if (email.length <= 0) {
-      tempErrors["email"] = true;
-      isValid = false;
-    }
-    if (message.length <= 0) {
-      tempErrors["message"] = true;
-      isValid = false;
-    }
-
-    setErrors({ ...tempErrors });
-    console.log("errors", errors);
-    return isValid;
-  };
+  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("");
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    let isValidForm = handleValidation();
+    const formData = {
+      name,
+      email,
+      message,
+    };
 
-    if (isValidForm) {
-      const res = await fetch("/api/sendgrid", {
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          message: message,
-        }),
-        headers: {
-          "content-type": "application/json",
-        },
-        method: "POST",
-      });
+    setSubmitted(true);
 
-      const { error } = await res.json();
-      if (error) {
-        console.log(error);
-        return;
+    fetch("/api/sendgrid", {
+      method: "post",
+      body: JSON.stringify(formData),
+    }).then((res) => {
+      if (res.status === 200) {
+        setSubmitted(false);
+        setName("");
+        setEmail("");
+        setMessage("");
+        setStatus("success");
+        console.log('success')
+      } else {
+        setStatus("error");
       }
-    }
+    });
   };
 
   return (
@@ -63,7 +41,7 @@ export default function Contact() {
       <div className="w-full">
         <h1 className="text-3xl md:text-4xl mb-6">Contact</h1>
 
-        <form onSubmit={handleSubmit}>
+        <form action="submit" method="POST" onSubmit={handleSubmit}>
           <div className="mb-6">
             <label
               htmlFor="email"
