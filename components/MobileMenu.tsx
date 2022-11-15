@@ -14,6 +14,12 @@ export default function MobileMenu() {
     }
   }
 
+  useEffect(() => {
+    return function reset() {
+      document.body.style.overflow = '';
+    };
+  }, []);
+
   return (
     <>
       <button className="md:hidden lg:hidden" aria-label="Toggle menu" type="button" onClick={toggleMenu}>
@@ -49,21 +55,27 @@ export default function MobileMenu() {
         )}
       </button>
 
+
       {isMenuOpen && (
         <ul className="menu flex flex-col absolute bg-white w-full overflow-y-auto z-30 h-full min-h-screen max-h-screen">
-          <li>
-            <Link href="/" className="flex w-auto pb-4">
+          <li className="border-b border-gray-300">
+            <Link href="/" className="flex w-auto pb-4 pt-4">
               Home
             </Link>
           </li>
-          <li>
-            <Link href="/blog" className="flex w-auto pb-4">
+          <li className="border-b border-gray-300">
+            <Link href="/blog" className="flex w-auto pb-4 pt-4">
               Blog
             </Link>
           </li>
-          <li>
-            <Link href="/portfolio" className="flex w-auto pb-4">
+          <li className="border-b border-gray-300">
+            <Link href="/portfolio" className="flex w-auto pb-4 pt-4">
               Portfolio
+            </Link>
+          </li>
+          <li className="border-b border-gray-300">
+            <Link href="/contact" className="flex w-auto pb-4 pt-4">
+              Contact
             </Link>
           </li>
         </ul>

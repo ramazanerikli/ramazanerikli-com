@@ -38,11 +38,12 @@ export default function Layout(props: any) {
         />
       </Head>
       <nav className="nav pt-6 flex align-center justify-between">
-        <div className="ml-[-0.8rem] flex gap-x-1">
+        <div className="ml-[-0.8rem] flex gap-x-1 w-full">
           <MobileMenu />
           <NavItem href="/" text="Home" />
           <NavItem href="/blog" text="Blog" />
           <NavItem href="/portfolio" text="Portfolio" />
+          <NavItem href="/contact" text="Contact" />
         </div>
         {/* todo: add theme switcher button */}
         <button className="hidden btn" type="button" aria-label="Toggle Theme">

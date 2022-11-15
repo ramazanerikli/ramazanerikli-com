@@ -12,6 +12,7 @@
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/code-input": "^3.0.0-v3-studio.15",
     "@sanity/image-url": "^1.0.1",
+    "@sendgrid/mail": "^7.7.0",
     "classnames": "^2.3.2",
     "fs": "^0.0.1-security",
     "glob": "^8.0.3",

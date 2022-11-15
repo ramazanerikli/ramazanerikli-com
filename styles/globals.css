@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 
-html {
+body {
   overflow-y: scroll ;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: auto;
