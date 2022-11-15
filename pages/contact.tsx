@@ -45,7 +45,7 @@ export default function Contact() {
           message: message,
         }),
         headers: {
-          "Content-Type": "application/json",
+          "content-type": "application/json",
         },
         method: "POST",
       });
